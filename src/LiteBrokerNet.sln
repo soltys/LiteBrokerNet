@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33403.182
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LiteBrokerNet", "LiteBrokerNet\LiteBrokerNet.csproj", "{DC683424-24FF-462F-A10C-2AA371FC909B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x64 = Debug|x64
+		Release|Any CPU = Release|Any CPU
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DC683424-24FF-462F-A10C-2AA371FC909B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DC683424-24FF-462F-A10C-2AA371FC909B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DC683424-24FF-462F-A10C-2AA371FC909B}.Debug|x64.ActiveCfg = Debug|x64
+		{DC683424-24FF-462F-A10C-2AA371FC909B}.Debug|x64.Build.0 = Debug|x64
+		{DC683424-24FF-462F-A10C-2AA371FC909B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DC683424-24FF-462F-A10C-2AA371FC909B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DC683424-24FF-462F-A10C-2AA371FC909B}.Release|x64.ActiveCfg = Release|x64
+		{DC683424-24FF-462F-A10C-2AA371FC909B}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {797CF42C-EC0B-44CB-9C3A-C4BEEB8C2820}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,3 @@
+[submodule "deps/LiteBroker"]
+	path = deps/LiteBroker
+	url = https://github.com/soltys/LiteBroker
