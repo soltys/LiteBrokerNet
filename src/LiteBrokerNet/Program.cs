@@ -7,7 +7,7 @@ Console.WriteLine("Version from library is: " + LiteBroker.GetVersion());
 
 var broker = new LiteBroker();
 
-//broker.Send("MyQueueFromCSharp", "{}");
+broker.Send("MyQueueFromCSharp", "{}");
 var collection = broker.Receive();
 
 Task lastTask = null;

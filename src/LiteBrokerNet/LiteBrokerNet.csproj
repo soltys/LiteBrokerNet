@@ -10,7 +10,7 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="LiteBroker.Native" Version="0.0.9"/>
+		<PackageReference Include="LiteBroker.Native.Linux" Version="0.0.9"/>
 	</ItemGroup>
 
 </Project>

@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
     <metadata>
-        <id>LiteBroker.Native.Windows</id>
+        <id>LiteBroker.Native.Linux</id>
         <version>0.0.9</version>
         <description>Native implementation of LiteBroker</description>
         <authors>Paweł Sołtysiak</authors>
     </metadata>
     <files>
-        <file src="liteBroker/Release/liteBroker.dll" target="runtimes/win-x64/native/liteBroker.dll" />
+        <file src="liteBroker/libliteBroker.so" target="runtimes/linux-x64/native/libliteBroker.so" />
     </files>
 </package>

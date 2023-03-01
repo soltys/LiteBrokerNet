@@ -46,7 +46,15 @@ Task("LiteBrokerNativeNugetPack")
     .IsDependentOn("LiteBrokerNativeBuild")
     .Does(()=>
     {
-        DotNetPack("./eng/LiteBroker.Native.Windows.csproj");
+        if (IsRunningOnWindows())
+        {
+            DotNetPack("./eng/LiteBroker.Native.Windows.csproj");
+        } 
+        else if(IsRunningOnLinux())
+        {
+            DotNetPack("./eng/LiteBroker.Native.Linux.csproj");
+        }
+ 
     });
 
 
@@ -62,7 +70,7 @@ Task("Build")
     .IsDependentOn("LiteBrokerNativeNugetPack")
     .Does(() =>
 {
-    DotNetBuild("./src/LiteBrokerNet.sln", new DotNetBuildSettings
+    DotNetBuild("./src/LiteBrokerNet/LiteBrokerNet.csproj", new DotNetBuildSettings
     {
         Configuration = configuration,
     });
@@ -72,7 +80,7 @@ Task("Test")
     .IsDependentOn("Build")
     .Does(() =>
 {
-    DotNetTest("./src/LiteBrokerNet.sln", new DotNetTestSettings
+    DotNetTest("./src/LiteBrokerNet/LiteBrokerNet.csproj", new DotNetTestSettings
     {
         Configuration = configuration,
         NoBuild = true,
