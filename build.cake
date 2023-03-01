@@ -1,5 +1,4 @@
 #addin nuget:?package=Cake.CMake&version=1.3.1
-#tool nuget:?package=NuGet.CommandLine&version=5.9.1
 
 var target = Argument("target", "Test");
 var configuration = Argument("configuration", "Release");
@@ -7,6 +6,14 @@ var configuration = Argument("configuration", "Release");
 //////////////////////////////////////////////////////////////////////
 // TASKS
 //////////////////////////////////////////////////////////////////////
+
+Task("EnsureNugetSource")
+    .Does(()=>
+{
+    EnsureDirectoryExists("_Result");
+    EnsureDirectoryExists("_Result/NuGet");
+});
+
 
 
 Task("LiteBrokerNativeGenerate")
@@ -35,14 +42,11 @@ Task("LiteBrokerNativeBuild")
 });
 
 Task("LiteBrokerNativeNugetPack")
+    .IsDependentOn("EnsureNugetSource")
     .IsDependentOn("LiteBrokerNativeBuild")
-    .Does(()=>{
-var nuGetPackSettings   = new NuGetPackSettings {
-                                     BasePath                = "./deps/LiteBroker/build",
-                                     OutputDirectory         = "./_Result/Nuget"
-                                 };
-
-     NuGetPack("./eng/LiteBrokerNative.nuspec", nuGetPackSettings);
+    .Does(()=>
+    {
+        DotNetPack("./eng/LiteBroker.Native.Windows.csproj");
     });
 
 
