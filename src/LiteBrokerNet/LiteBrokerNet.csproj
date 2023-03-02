@@ -10,7 +10,8 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="LiteBroker.Native.Linux" Version="0.0.9"/>
+		<PackageReference Include="LiteBroker.Native.Linux.x64" Version="0.0.9" Condition="'$(OS)' == 'Unix' AND '$(Platform)' == 'x64'"/>
+		<PackageReference Include="LiteBroker.Native.Windows.x64" Version="0.0.9" Condition="'$(OS)' == 'Windows_NT' AND '$(Platform)' == 'x64'"/>
 	</ItemGroup>
 
 </Project>

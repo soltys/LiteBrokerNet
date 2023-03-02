@@ -3,17 +3,12 @@
 		<TargetFramework>net7.0</TargetFramework>
 		<NoBuild>true</NoBuild>
 		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-		<NuspecFile>LiteBroker.Native.Linux.nuspec</NuspecFile>
+		<NuspecFile>LiteBroker.Native.Linux.x64.nuspec</NuspecFile>
 		<NuspecProperties></NuspecProperties>
 		<NuspecBasePath>../deps/LiteBroker/build</NuspecBasePath>
 		<SkipCompilerExecution>true</SkipCompilerExecution>
 		<CopyBuildOutputToOutputDirectory>false</CopyBuildOutputToOutputDirectory>
 		<PackageOutputPath>../_Result/NuGet</PackageOutputPath>
-	</PropertyGroup>
-	<PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
-	  <PlatformTarget>x64</PlatformTarget>
-	</PropertyGroup>
-	<PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
-	  <PlatformTarget>x64</PlatformTarget>
-	</PropertyGroup>
+		<PlatformTarget>x64</PlatformTarget>
+	</PropertyGroup>	
 </Project>

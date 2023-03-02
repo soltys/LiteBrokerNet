@@ -22,7 +22,8 @@ Task("LiteBrokerNativeGenerate")
     var settings = new CMakeSettings
     {
         OutputPath = "deps/LiteBroker/build",
-        SourcePath = "deps/LiteBroker"
+        SourcePath = "deps/LiteBroker",
+        Platform = "x64"
     };
 
     CMake(settings);
@@ -48,11 +49,11 @@ Task("LiteBrokerNativeNugetPack")
     {
         if (IsRunningOnWindows())
         {
-            DotNetPack("./eng/LiteBroker.Native.Windows.csproj");
+            DotNetPack("./eng/LiteBroker.Native.Windows.x64.csproj");
         } 
         else if(IsRunningOnLinux())
         {
-            DotNetPack("./eng/LiteBroker.Native.Linux.csproj");
+            DotNetPack("./eng/LiteBroker.Native.Linux.x64.csproj");
         }
  
     });

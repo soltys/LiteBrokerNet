@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
     <metadata>
-        <id>LiteBroker.Native.Windows</id>
+        <id>LiteBroker.Native.Windows.x64</id>
         <version>0.0.9</version>
         <description>Native implementation of LiteBroker</description>
         <authors>Paweł Sołtysiak</authors>
