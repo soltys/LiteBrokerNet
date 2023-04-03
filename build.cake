@@ -88,6 +88,45 @@ Task("Test")
     });
 });
 
+Task("Publish-Win-x64")
+    .IsDependentOn("Test")
+    .Does(() =>
+{
+    DotNetPublish("./src/LiteBrokerNet/LiteBrokerNet.csproj", new DotNetPublishSettings
+    {
+        Configuration = configuration,
+        PublishSingleFile = true,
+        SelfContained = true,
+        Runtime = "win-x64"
+    });
+});
+
+Task("Publish-Linux-x64")
+    .IsDependentOn("Test")
+    .Does(() =>
+{
+    DotNetPublish("./src/LiteBrokerNet/LiteBrokerNet.csproj", new DotNetPublishSettings
+    {
+        Configuration = configuration,
+        PublishSingleFile = true,
+        SelfContained = true,
+        Runtime = "linux-x64"
+    });
+});
+
+Task("Publish")
+    .Does(()=>
+    {
+        if (IsRunningOnWindows())
+        {
+            RunTarget("Publish-Win-x64");
+        } 
+        else if(IsRunningOnLinux())
+        {
+            RunTarget("Publish-Linux-x64");
+        }
+    });
+
 //////////////////////////////////////////////////////////////////////
 // EXECUTION
 //////////////////////////////////////////////////////////////////////

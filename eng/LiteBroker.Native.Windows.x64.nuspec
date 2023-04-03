@@ -8,5 +8,6 @@
     </metadata>
     <files>
         <file src="liteBroker/Release/liteBroker.dll" target="runtimes/win-x64/native/liteBroker.dll" />
+        <file src="$target_file$" target="buildTransitive/net7.0" />
     </files>
 </package>

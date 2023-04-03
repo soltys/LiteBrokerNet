@@ -5,7 +5,7 @@ VisualStudioVersion = 17.4.33403.182
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LiteBrokerNet", "LiteBrokerNet\LiteBrokerNet.csproj", "{DC683424-24FF-462F-A10C-2AA371FC909B}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LiteBroker.Native.Windows", "..\eng\LiteBroker.Native.Windows.csproj", "{881AD3E5-7A9E-42EF-9FA8-C40B576D0639}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LiteBroker.Native.Windows.x64", "..\eng\LiteBroker.Native.Windows.x64.csproj", "{8690F954-11C0-4DBD-B2F9-64E6FD4860BD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,14 +23,14 @@ Global
 		{DC683424-24FF-462F-A10C-2AA371FC909B}.Release|Any CPU.Build.0 = Release|Any CPU
 		{DC683424-24FF-462F-A10C-2AA371FC909B}.Release|x64.ActiveCfg = Release|x64
 		{DC683424-24FF-462F-A10C-2AA371FC909B}.Release|x64.Build.0 = Release|x64
-		{881AD3E5-7A9E-42EF-9FA8-C40B576D0639}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{881AD3E5-7A9E-42EF-9FA8-C40B576D0639}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{881AD3E5-7A9E-42EF-9FA8-C40B576D0639}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{881AD3E5-7A9E-42EF-9FA8-C40B576D0639}.Debug|x64.Build.0 = Debug|Any CPU
-		{881AD3E5-7A9E-42EF-9FA8-C40B576D0639}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{881AD3E5-7A9E-42EF-9FA8-C40B576D0639}.Release|Any CPU.Build.0 = Release|Any CPU
-		{881AD3E5-7A9E-42EF-9FA8-C40B576D0639}.Release|x64.ActiveCfg = Release|Any CPU
-		{881AD3E5-7A9E-42EF-9FA8-C40B576D0639}.Release|x64.Build.0 = Release|Any CPU
+		{8690F954-11C0-4DBD-B2F9-64E6FD4860BD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8690F954-11C0-4DBD-B2F9-64E6FD4860BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8690F954-11C0-4DBD-B2F9-64E6FD4860BD}.Debug|x64.ActiveCfg = Debug|x64
+		{8690F954-11C0-4DBD-B2F9-64E6FD4860BD}.Debug|x64.Build.0 = Debug|x64
+		{8690F954-11C0-4DBD-B2F9-64E6FD4860BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8690F954-11C0-4DBD-B2F9-64E6FD4860BD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8690F954-11C0-4DBD-B2F9-64E6FD4860BD}.Release|x64.ActiveCfg = Release|Any CPU
+		{8690F954-11C0-4DBD-B2F9-64E6FD4860BD}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

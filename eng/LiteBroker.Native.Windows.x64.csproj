@@ -1,7 +1,8 @@
 <Project Sdk="Microsoft.NET.Sdk">
 	<PropertyGroup>
-		<TargetFramework>net7.0</TargetFramework>
+		<TargetFramework>net7.0-windows</TargetFramework>
 		<NoBuild>true</NoBuild>
+		<Platforms>x64</Platforms>
 		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
 		<NuspecFile>LiteBroker.Native.Windows.x64.nuspec</NuspecFile>
 		<NuspecProperties></NuspecProperties>
@@ -9,6 +10,6 @@
 		<SkipCompilerExecution>true</SkipCompilerExecution>
 		<CopyBuildOutputToOutputDirectory>false</CopyBuildOutputToOutputDirectory>
 		<PackageOutputPath>../_Result/NuGet</PackageOutputPath>
-		<PlatformTarget>x64</PlatformTarget>
+		<NuspecProperties>target_file=$(MSBuildThisFileDirectory)LiteBroker.Native.Windows.x64.targets</NuspecProperties>
 	</PropertyGroup>
 </Project>
