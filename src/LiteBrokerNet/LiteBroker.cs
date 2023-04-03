@@ -5,45 +5,69 @@ namespace LiteBrokerNet;
 public class LiteBrokerNative
 {
     private const string DllName = "liteBroker";
-    [DllImport(DllName)]
+    [DllImport(LiteBrokerNative.DllName)]
     public static extern IntPtr broker_version();
 
-    [DllImport(DllName)]
+    [DllImport(LiteBrokerNative.DllName)]
     public static extern int broker_initialize(out IntPtr broker);
 
-    [DllImport(DllName)]
+    [DllImport(LiteBrokerNative.DllName)]
     public static extern int broker_destroy(IntPtr broker);
-    [DllImport(DllName)]
+    [DllImport(LiteBrokerNative.DllName)]
     public static extern int broker_send(IntPtr broker, string queue, string payload);
 
-    [DllImport(DllName)]
+    [DllImport(LiteBrokerNative.DllName)]
     public static extern int broker_receive(IntPtr broker, out IntPtr collection);
 
-    [DllImport(DllName)]
+    [DllImport(LiteBrokerNative.DllName)]
     public static extern int broker_finalize(IntPtr collection);
 
-    [DllImport(DllName)]
+    [DllImport(LiteBrokerNative.DllName)]
     public static extern int broker_task_count(IntPtr collection);
 
-    [DllImport(DllName)]
+    [DllImport(LiteBrokerNative.DllName)]
     public static extern IntPtr broker_task_at(IntPtr collection, int index);
-    [DllImport(DllName)]
+    [DllImport(LiteBrokerNative.DllName)]
     public static extern IntPtr broker_task_get_id(IntPtr collection);
-    [DllImport(DllName)]
+    [DllImport(LiteBrokerNative.DllName)]
     public static extern IntPtr broker_task_get_payload(IntPtr collection);
-    [DllImport(DllName)]
+    [DllImport(LiteBrokerNative.DllName)]
     public static extern IntPtr broker_task_get_queue(IntPtr collection);
-    [DllImport(DllName)]
+    [DllImport(LiteBrokerNative.DllName)]
     public static extern IntPtr broker_task_get_created(IntPtr collection);
-    [DllImport(DllName)]
+    [DllImport(LiteBrokerNative.DllName)]
     public static extern int broker_task_get_status(IntPtr collection);
-    [DllImport(DllName)]
+    [DllImport(LiteBrokerNative.DllName)]
     public static extern int broker_set_status(IntPtr broker, IntPtr idStr, int status);
 }
 
 public class LiteBroker : IDisposable
 {
-    private readonly nint brokerPtr;
+    private readonly IntPtr brokerPtr;
+
+   
+
+    public LiteBroker()
+    {
+        this.brokerPtr = IntPtr.Zero;
+        var result = LiteBrokerNative.broker_initialize(out this.brokerPtr);
+    }
+    
+    private void ReleaseUnmanagedResources()
+    {
+        LiteBrokerNative.broker_destroy(this.brokerPtr);
+    }
+
+    public void Dispose()
+    {
+        ReleaseUnmanagedResources();
+        GC.SuppressFinalize(this);
+    }
+
+    ~LiteBroker()
+    {
+        ReleaseUnmanagedResources();
+    }
 
     public static string GetVersion()
     {
@@ -56,12 +80,6 @@ public class LiteBroker : IDisposable
         }
 
         return versionString;
-    }
-
-    public LiteBroker()
-    {
-        this.brokerPtr = IntPtr.Zero;
-        var result = LiteBrokerNative.broker_initialize(out brokerPtr);
     }
 
     public void Send(string queue, string payload)
@@ -83,21 +101,7 @@ public class LiteBroker : IDisposable
         Marshal.FreeHGlobal(idPtr);
     }
 
-    private void ReleaseUnmanagedResources()
-    {
-        LiteBrokerNative.broker_destroy(brokerPtr);
-    }
-
-    public void Dispose()
-    {
-        ReleaseUnmanagedResources();
-        GC.SuppressFinalize(this);
-    }
-
-    ~LiteBroker()
-    {
-        ReleaseUnmanagedResources();
-    }
+  
 }
 
 public class TaskCollection: IDisposable
@@ -116,9 +120,9 @@ public class TaskCollection: IDisposable
 
     private void GetAllTasks()
     {
-        for (int i = 0; i < taskSize; i++)
+        for (int i = 0; i < this.taskSize; i++)
         {
-            var taskPtr = LiteBrokerNative.broker_task_at(collectionPtr, i);
+            var taskPtr = LiteBrokerNative.broker_task_at(this.collectionPtr, i);
 
             var task = new Task
             {
