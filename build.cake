@@ -93,7 +93,8 @@ Task("Publish")
     {
         DotNetPublish("./src/LiteBrokerNet/LiteBrokerNet.csproj", new DotNetPublishSettings
         {
-            ArgumentCustomization = args=>args.Append("-p:PublishProfile=FolderProfile")
+            Configuration = configuration,
+            OutputDirectory = $"_Result/LiteBrokerNet/{configuration}"
         });
     });
 
