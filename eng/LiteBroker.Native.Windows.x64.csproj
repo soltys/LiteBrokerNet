@@ -6,10 +6,10 @@
 		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
 		<NuspecFile>LiteBroker.Native.Windows.x64.nuspec</NuspecFile>
 		<NuspecProperties></NuspecProperties>
-		<NuspecBasePath>../deps/LiteBroker/build</NuspecBasePath>
+		<NuspecBasePath>$(MSBuildThisFolder)</NuspecBasePath>
 		<SkipCompilerExecution>true</SkipCompilerExecution>
 		<CopyBuildOutputToOutputDirectory>false</CopyBuildOutputToOutputDirectory>
 		<PackageOutputPath>../_Result/NuGet</PackageOutputPath>
-		<NuspecProperties>target_file=$(MSBuildThisFileDirectory)LiteBroker.Native.Windows.x64.targets</NuspecProperties>
+		<NuspecProperties>liteBroker_build_path=$(MSBuildThisFolder)../deps/LiteBroker/build</NuspecProperties>
 	</PropertyGroup>
 </Project>
