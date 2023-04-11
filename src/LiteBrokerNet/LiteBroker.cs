@@ -13,6 +13,7 @@ public class LiteBrokerNative
 
     [DllImport(LiteBrokerNative.DllName)]
     public static extern int broker_destroy(IntPtr broker);
+
     [DllImport(LiteBrokerNative.DllName)]
     public static extern int broker_send(IntPtr broker, string queue, string payload);
 
@@ -41,18 +42,28 @@ public class LiteBrokerNative
     public static extern int broker_set_status(IntPtr broker, IntPtr idStr, int status);
 }
 
+
+public enum BrokerResult : int
+{
+    Ok = 0,
+    Failed = 1,
+}
+
 public class LiteBroker : IDisposable
 {
     private readonly IntPtr brokerPtr;
 
-   
-
     public LiteBroker()
     {
         this.brokerPtr = IntPtr.Zero;
-        var result = LiteBrokerNative.broker_initialize(out this.brokerPtr);
+        var result = (BrokerResult)LiteBrokerNative.broker_initialize(out this.brokerPtr);
+        if (result != BrokerResult.Ok)
+        {
+            throw new InvalidOperationException(
+                $"{nameof(LiteBrokerNative.broker_initialize)} returned not Ok result");
+        }
     }
-    
+
     private void ReleaseUnmanagedResources()
     {
         LiteBrokerNative.broker_destroy(this.brokerPtr);
@@ -69,10 +80,11 @@ public class LiteBroker : IDisposable
         ReleaseUnmanagedResources();
     }
 
+
     public static string GetVersion()
     {
         var ptr = LiteBrokerNative.broker_version();
-        var versionString =  Marshal.PtrToStringAnsi(ptr);
+        var versionString = Marshal.PtrToStringAnsi(ptr);
 
         if (versionString == null)
         {
@@ -89,7 +101,7 @@ public class LiteBroker : IDisposable
 
     public TaskCollection Receive()
     {
-       return TaskCollection.GetFromBroker(this.brokerPtr);
+        return TaskCollection.GetFromBroker(this.brokerPtr);
     }
 
     public void SetStatus(string id, int status)
@@ -101,10 +113,12 @@ public class LiteBroker : IDisposable
         Marshal.FreeHGlobal(idPtr);
     }
 
-  
+
 }
 
-public class TaskCollection: IDisposable
+
+
+public class TaskCollection : IDisposable
 {
     private IntPtr collectionPtr;
     private readonly int taskSize;

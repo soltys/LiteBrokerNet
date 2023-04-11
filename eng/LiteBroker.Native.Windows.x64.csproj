@@ -3,11 +3,11 @@
 		<TargetFramework>net7.0-windows</TargetFramework>
 		<NoBuild>true</NoBuild>
 		<Platforms>x64</Platforms>
+		<PlatformTarget>x64</PlatformTarget>
 		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+
 		<NuspecFile>LiteBroker.Native.Windows.x64.nuspec</NuspecFile>
-		<NuspecProperties></NuspecProperties>
 		<NuspecBasePath>$(MSBuildThisFolder)</NuspecBasePath>
-		<SkipCompilerExecution>true</SkipCompilerExecution>
 		<CopyBuildOutputToOutputDirectory>false</CopyBuildOutputToOutputDirectory>
 		<PackageOutputPath>../_Result/NuGet</PackageOutputPath>
 		<NuspecProperties>liteBroker_build_path=$(MSBuildThisFolder)../deps/LiteBroker/build</NuspecProperties>
