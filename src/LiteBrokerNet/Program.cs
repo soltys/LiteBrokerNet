@@ -1,19 +1,18 @@
 ﻿using LiteBrokerNet;
 using Task = LiteBrokerNet.Task;
-
-Console.WriteLine("Hello World, LiteBrokerNet");
+using TaskStatus = LiteBrokerNet.TaskStatus;
 
 Console.WriteLine("Version from library is: " + LiteBroker.GetVersion());
 
-var broker = new LiteBroker();
+using var broker = new LiteBroker();
 
 broker.Send("MyQueueFromCSharp", "{}");
-var collection = broker.Receive();
+using var collection = broker.Receive();
 
 Task lastTask = null;
 foreach (var task in collection.Tasks)
 {
-    Console.WriteLine("Found task!");
+    Console.WriteLine("Found new task!");
     Console.WriteLine($"Id: {task.Id}");
     Console.WriteLine($"Queue: {task.Queue}");
     Console.WriteLine($"Payload: {task.Payload}");
@@ -23,8 +22,7 @@ foreach (var task in collection.Tasks)
     lastTask = task;
 }
 
-broker.SetStatus(lastTask.Id, 1);
-
-collection.Dispose();
-
-broker.Dispose();
+if (lastTask != null)
+{
+    broker.SetStatus(lastTask.Id, TaskStatus.Acknowledged);
+}

@@ -2,9 +2,11 @@
 using System.Runtime.InteropServices;
 
 namespace LiteBrokerNet;
+
 public class LiteBrokerNative
 {
     private const string DllName = "liteBroker";
+
     [DllImport(LiteBrokerNative.DllName)]
     public static extern IntPtr broker_version();
 
@@ -28,20 +30,25 @@ public class LiteBrokerNative
 
     [DllImport(LiteBrokerNative.DllName)]
     public static extern IntPtr broker_task_at(IntPtr collection, int index);
+
     [DllImport(LiteBrokerNative.DllName)]
     public static extern IntPtr broker_task_get_id(IntPtr collection);
+
     [DllImport(LiteBrokerNative.DllName)]
     public static extern IntPtr broker_task_get_payload(IntPtr collection);
+
     [DllImport(LiteBrokerNative.DllName)]
     public static extern IntPtr broker_task_get_queue(IntPtr collection);
+
     [DllImport(LiteBrokerNative.DllName)]
     public static extern IntPtr broker_task_get_created(IntPtr collection);
+
     [DllImport(LiteBrokerNative.DllName)]
     public static extern int broker_task_get_status(IntPtr collection);
+
     [DllImport(LiteBrokerNative.DllName)]
     public static extern int broker_set_status(IntPtr broker, IntPtr idStr, int status);
 }
-
 
 public enum BrokerResult : int
 {
@@ -104,19 +111,15 @@ public class LiteBroker : IDisposable
         return TaskCollection.GetFromBroker(this.brokerPtr);
     }
 
-    public void SetStatus(string id, int status)
+    public void SetStatus(string id, TaskStatus status)
     {
         var idPtr = Marshal.StringToHGlobalAnsi(id);
 
-        LiteBrokerNative.broker_set_status(this.brokerPtr, idPtr, status);
+        LiteBrokerNative.broker_set_status(this.brokerPtr, idPtr, (int)status);
 
         Marshal.FreeHGlobal(idPtr);
     }
-
-
 }
-
-
 
 public class TaskCollection : IDisposable
 {
@@ -178,6 +181,12 @@ public class TaskCollection : IDisposable
     {
         ReleaseUnmanagedResources();
     }
+}
+
+public enum TaskStatus : int
+{
+    New = 0,
+    Acknowledged = 1
 }
 
 public class Task
