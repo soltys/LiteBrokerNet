@@ -89,6 +89,7 @@ Task("Test")
 });
 
 Task("Publish")
+    .IsDependentOn("Build")
     .Does(()=>
     {
         DotNetPublish("./src/LiteBrokerNet/LiteBrokerNet.csproj", new DotNetPublishSettings
