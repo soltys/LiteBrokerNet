@@ -1,0 +1,4 @@
+{
+    "cmake.sourceDirectory": "${workspaceFolder}/deps/LiteBroker",
+    "cmake.buildDirectory": "${workspaceFolder}/deps/LiteBroker/build"
+}

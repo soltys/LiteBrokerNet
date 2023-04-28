@@ -22,8 +22,7 @@ Task("LiteBrokerNativeGenerate")
     var settings = new CMakeSettings
     {
         OutputPath = "deps/LiteBroker/build",
-        SourcePath = "deps/LiteBroker",
-        Platform = "x64"
+        SourcePath = "deps/LiteBroker"
     };
 
     CMake(settings);
