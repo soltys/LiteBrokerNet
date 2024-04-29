@@ -7,6 +7,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LiteBrokerNet", "LiteBroker
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LiteBroker.Native.Windows.x64", "..\eng\LiteBroker.Native.Windows.x64.csproj", "{8690F954-11C0-4DBD-B2F9-64E6FD4860BD}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solutions files", "Solutions files", "{AA5C7817-AE02-4BF6-A716-1AF98A03393D}"
+	ProjectSection(SolutionItems) = preProject
+		..\Directory.Build.props = ..\Directory.Build.props
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

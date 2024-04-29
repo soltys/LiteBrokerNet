@@ -4,7 +4,6 @@
 		<NoBuild>true</NoBuild>
 		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
 		<NuspecFile>LiteBroker.Native.Linux.x64.nuspec</NuspecFile>
-		<NuspecProperties></NuspecProperties>
 		<NuspecBasePath>../deps/LiteBroker/build</NuspecBasePath>
 		<SkipCompilerExecution>true</SkipCompilerExecution>
 		<CopyBuildOutputToOutputDirectory>false</CopyBuildOutputToOutputDirectory>

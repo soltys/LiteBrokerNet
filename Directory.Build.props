@@ -1,0 +1,6 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <LiteBrokerVersion>0.0.10-testing2</LiteBrokerVersion>
+    <NuspecProperties>LiteBrokerVersion=$(LiteBrokerVersion);liteBroker_build_path=$(MSBuildThisFolder)../deps/LiteBroker/build</NuspecProperties>
+  </PropertyGroup>
+</Project>

@@ -10,6 +10,6 @@
 		<NuspecBasePath>$(MSBuildThisFolder)</NuspecBasePath>
 		<CopyBuildOutputToOutputDirectory>false</CopyBuildOutputToOutputDirectory>
 		<PackageOutputPath>../_Result/NuGet</PackageOutputPath>
-		<NuspecProperties>liteBroker_build_path=$(MSBuildThisFolder)../deps/LiteBroker/build</NuspecProperties>
+		
 	</PropertyGroup>
 </Project>
