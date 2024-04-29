@@ -2,6 +2,7 @@
 
 var target = Argument("target", "Test");
 var configuration = Argument("configuration", "Release");
+var runtime = Argument("arch", "x64");
 
 //////////////////////////////////////////////////////////////////////
 // TASKS
@@ -46,6 +47,7 @@ Task("LiteBrokerNativeNugetPack")
     .IsDependentOn("LiteBrokerNativeBuild")
     .Does(()=>
     {
+        
         if (IsRunningOnWindows())
         {
             DotNetPack("./eng/LiteBroker.Native.Windows.x64.csproj");

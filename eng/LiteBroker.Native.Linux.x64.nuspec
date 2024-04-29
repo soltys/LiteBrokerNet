@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
     <metadata>
         <id>LiteBroker.Native.Linux.x64</id>
-        <version>$(LiteBrokerVersion)</version>
+        <version>$LiteBrokerVersion$</version>
         <description>Native implementation of LiteBroker</description>
         <authors>Paweł Sołtysiak</authors>
     </metadata>
