@@ -2,11 +2,11 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
     <metadata>
         <id>LiteBroker.Native.Linux.x64</id>
-        <version>0.0.9</version>
+        <version>0.0.10</version>
         <description>Native implementation of LiteBroker</description>
         <authors>Paweł Sołtysiak</authors>
     </metadata>
     <files>
-        <file src="liteBroker/libliteBroker.so" target="runtimes/linux-x64/native/libliteBroker.so" />
+        <file src="liteBroker/liblitebroker.so" target="runtimes/linux-x64/native/liblitebroker.so" />
     </files>
 </package>

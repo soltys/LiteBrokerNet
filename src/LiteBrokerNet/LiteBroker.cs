@@ -5,7 +5,7 @@ namespace LiteBrokerNet;
 
 public class LiteBrokerNative
 {
-    private const string DllName = "liteBroker";
+    private const string DllName = "litebroker";
 
     [DllImport(LiteBrokerNative.DllName)]
     public static extern IntPtr broker_version();

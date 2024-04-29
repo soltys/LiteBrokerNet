@@ -15,8 +15,8 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="LiteBroker.Native.Linux.x64" Version="0.0.9" Condition="'$(OS)' == 'Unix' AND '$(PlatformTarget)' == 'x64'" />
-		<PackageReference Include="LiteBroker.Native.Windows.x64" Version="0.0.9" Condition="'$(OS)' == 'Windows_NT' AND '$(PlatformTarget)' == 'x64'" />
+		<PackageReference Include="LiteBroker.Native.Linux.x64" Version="0.0.10" Condition="'$(OS)' == 'Unix' AND '$(PlatformTarget)' == 'x64'" />
+		<PackageReference Include="LiteBroker.Native.Windows.x64" Version="0.0.10" Condition="'$(OS)' == 'Windows_NT' AND '$(PlatformTarget)' == 'x64'" />
 	</ItemGroup>
 
 </Project>
