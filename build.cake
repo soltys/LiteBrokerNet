@@ -1,4 +1,4 @@
-#addin nuget:?package=Cake.CMake&version=1.3.1
+#addin nuget:?package=Cake.CMake&version=1.4.0
 
 var target = Argument("target", "Test");
 var configuration = Argument("configuration", "Release");
